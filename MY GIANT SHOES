@@ -259,7 +259,6 @@ while Spaz do
 	Grab.Touched:connect(function(hit)
 		if hit.Parent:FindFirstChild("Humanoid")and hit.Parent ~= nil and hit.Parent.Name ~= Player.Character.Name then
 			Grab:remove()
-			hit.Parent.Humanoid:TakeDamage(20)
 			local SFXZ = Instance.new("Sound",Torso)
 			SFXZ.SoundId = "rbxassetid://743886825"
 			SFXZ.Volume = 1
@@ -281,7 +280,6 @@ while Spaz do
 	Grab.Touched:connect(function(hit)
 		if hit.Parent:FindFirstChild("Humanoid")and hit.Parent ~= nil and hit.Parent.Name ~= Player.Character.Name then
 			GrabAF:remove()
-			hit.Parent.Humanoid:TakeDamage(Damage)
 			local SFXZ = Instance.new("Sound",Torso)
 			SFXZ.SoundId = "rbxassetid://743886825"
 			SFXZ.Volume = 1
@@ -389,7 +387,6 @@ Fl.LightEmission = 0.5
 Fl.Speed = NumberRange.new(10)
 Fl.LockedToPart = true
 MAXSP = 0.35
-Damage = 120
 Humanoid.MaxHealth = 5000
 wait()
 Humanoid.Health = 5000
@@ -721,7 +718,6 @@ Character.Pants:remove()
 	LEh.BrickColor = BrickColor.new("Bright yellow")
 	Head.BrickColor = BrickColor.new("Bright violet")
 	MAXSP = 0.1
-	Damage = 600
 	local AQ = Instance.new("Part",Character)
 	AQ.Transparency = 12121
 	AQ.CanCollide = false
