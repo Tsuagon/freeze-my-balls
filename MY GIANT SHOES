@@ -831,11 +831,6 @@ HitBox.CanCollide = false
 HitBox.Anchored = true
 HitBox.Transparency = 1211
 HitBox.CFrame = AZ.CFrame*CFrame.new(0,0,0)
-HitBox.Touched:connect(function(hit)
-	if hit.Parent:FindFirstChild("Humanoid") and hit.Parent ~= nil and hit.Parent.Name ~= Character.Name then
-		hit:remove()
-	end
-end)
 wait(30)
 HitBox:remove()
 AZ:remove()
