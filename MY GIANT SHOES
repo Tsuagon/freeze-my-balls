@@ -29,6 +29,7 @@ local attack = false
 local LOL = false
 local Anim = 'Idle'
 local attacktype = 1
+local attacking = false
 local delays = false
 local play = true
 local targetted = nil
@@ -885,6 +886,8 @@ D = false
 end
 end
 function DeathBeam()
+	if attacking == true then return end
+	attacking = true
 	if not D then D = true
 		Pause = true
 		for i = 0,2,0.1 do
@@ -922,11 +925,6 @@ function DeathBeam()
 	Cy.Shape = "Cylinder"
 	Cy.CanCollide = false
 	Cy.CFrame = RightArm.CFrame*CFrame.new(0,0,0)*CFrame.Angles(0,0,1.55)
-	Cy.Touched:connect(function(hit)
-		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent ~= nil and hit.Parent.Name ~= Character.Name then
-			hit:remove()
-		end
-	end)
 	for i = 1,200 do
 		Cy.Size = Cy.Size + Vector3.new(3,0,0)
 		Cy.CFrame = RightArm.CFrame*CFrame.new(-0.03*i,-1.5*i,0)*CFrame.new(0,-3,0)*CFrame.Angles(0,0,1.55)
@@ -942,6 +940,7 @@ function DeathBeam()
 	Pause = false
 		wait(2)
 		D = false
+		attacking = false
 	end
 end
 Mouse.Button1Down:connect(function()
